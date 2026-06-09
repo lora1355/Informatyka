@@ -46,6 +46,26 @@ char plansza[ROZMIAR][ROZMIAR]=
             case 'D':
                 nowyX++;
                 break;
+                 default:
+                cout << "Bledny ruch!";
+                continue;
         }
+        if (nowyX<0 || nowyX>=ROZMIAR || nowyY<0 || nowyY>=ROZMIAR )
+        {
+            cout <<"Nie mozna wyjsc poza plansze!"<<endl;
+            continue;
+        }
+        if (plansza[nowyY][nowyX]=='M')
+        {
+            punkty++;
+            cout<<"Zebrano monete!"<<endl;
+        }
+        plansza[y][x]='.';
+        x=nowyX;
+        y=nowyY;
+        plansza[y][x]='G';
     }
+    cout<<"Gratulacje, zebrales/as wszystkie monety!"<<endl;
+    cout <<"Liczba punktow: "<<punkty<<endl;
+    return 0;
 }
